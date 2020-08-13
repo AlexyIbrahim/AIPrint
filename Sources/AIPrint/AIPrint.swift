@@ -23,7 +23,7 @@ public enum LogLevel {
 }
 
 public func print(_ items: String..., filename: String = #file, function : String = #function, line: Int = #line, separator: String = " ", terminator: String = "\n", severity: LogLevel? = nil) {
-
+    
     let pretty: String = "\(URL(fileURLWithPath: filename).lastPathComponent) [#\(line)] \(function) \((severity ?? .verbose).symbol) "
     let output: String = items.map { "\($0)" }.joined(separator: separator)
     let fullString = pretty+output
